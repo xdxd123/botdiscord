@@ -1,4 +1,11 @@
-module.exports = async (client, guild) => {
-  client.settings.set(guild.id, client.config.defaultSettings);
-  await guild.client.user.setGame(`${client.config.prefix}help | ${guild.client.guilds.size} Servers`);
+module.exports = class {
+  constructor(client) {
+    this.client = client;
+  }
+
+  async execute(guild) {
+    if (!guild.available) return;
+    await this.client.user.setGame(`${this.client.settings.get('default').prefix}help | ${this.client.guilds.size} Servers`);
+    this.client.log('log', `New guild has been joined: ${guild.name} (${guild.id}) with ${guild.memberCount - 1 } members.`, 'JOINED');
+  }
 };

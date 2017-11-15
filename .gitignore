@@ -1,16 +1,39 @@
 # Directories
 /node_modules/
 /data/
+/docs/
 
 # File Extensions
 *.log
+*.txt
 
 # Specific Files
+package-lock.json
 settings.json
 config.json
+config.js
 tagsbot.sqlite
+
+# Asset Files
 assets/selfies/selfie.jpg
 assets/selfies/selfie_meme.jpg
 assets/selfies/selfie_triggered.jpg
-commands/meme_old.js
-package-lock.json
+assets/images/image_evil.png
+
+# Commands
+commands/fun/evil.js
+commands/documentation/init.js
+commands/music/pause.js
+commands/music/play.js
+commands/music/queue.js
+commands/music/resume.js
+commands/music/search.js
+commands/music/skip.js
+commands/music/stop.js
+commands/music/volume.js
+
+# Monitors
+monitors/starboard.js
+
+# Functions
+functions/music.js
