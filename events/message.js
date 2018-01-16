@@ -8,7 +8,8 @@ module.exports = class {
 
   async execute(message) {
     if (message.author.bot) return;
-  
+    if (!message.guild.me.permissionsIn(message.channel).has('SEND_MESSAGES')) return;
+
     const defaults = this.client.settings.get('default');
     const settings = message.guild ? this.client.getSettings(message.guild.id) : defaults;
     message.settings = settings;
@@ -44,13 +45,6 @@ module.exports = class {
     
     if (!cmd) return;
     
-    const rateLimit = await this.client.ratelimit(message, level, cmd.help.name, cmd.conf.cooldown); 
-
-    if (typeof rateLimit == 'string') {
-      this.client.logger.warn(`${this.client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) got ratelimited while running command ${cmd.help.name}`);
-      return message.reply(`Please wait ${rateLimit.toPlural()} to run this command.`);
-    }
-
     if (cmd && !message.guild && cmd.conf.guildOnly)
       return message.reply('This command is unavailable via private message. Please run this command in a guild.');
 
@@ -72,11 +66,6 @@ This command requires level ${this.client.levelCache[cmd.conf.permLevel]} (${cmd
     }
 
     this.client.logger.cmd(`${this.client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`);
-
-    if (message.channel.type === 'text') {      
-      const mPerms = this.client.permCheck(message, cmd.conf.botPerms);
-      if (mPerms.length) return message.reply(`The bot does not have the following permissions \`${mPerms.join(', ')}\``);
-    }
 
     cmd.run(message, args, level).catch(error => {
       console.log(error);

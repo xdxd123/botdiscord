@@ -2,22 +2,6 @@ const moment = require('moment');
 require('moment-duration-format');
 module.exports = (client) => {
 
-  client.ratelimit = async (message, level, key, duration) => {
-    if (level > 1) return false;
-    duration = duration * 1000;
-    const ratelimits = client.ratelimits.get(message.author.id) || {};
-    if (!ratelimits[key]) ratelimits[key] = Date.now() - duration;
-    const differnce = Date.now() - ratelimits[key];
-    if (differnce < duration) {
-      return moment.duration(duration - differnce).format('D [days], H [hours], m [minutes], s [seconds]', 1);
-    } else {
-      ratelimits[key] = Date.now();
-      client.ratelimits.set(message.author.id, ratelimits);
-      return true;
-    }
-  };
-
-
   client.getSettings = (id) => {
     const defaults = client.settings.get('default');
     let guild = client.settings.get(id);
@@ -95,23 +79,6 @@ module.exports = (client) => {
     });
   };
 
-  String.prototype.toPlural = function() {
-    return this.replace(/((?:\D|^)1 .+?)s/g, '$1');
-  };
-
-  Array.prototype.remove = function() {
-    var value, a = arguments,
-      L = a.length,
-      ax;
-    while (L && this.length) {
-      value = a[--L];
-      while ((ax = this.indexOf(value)) !== -1) {
-        this.splice(ax, 1);
-      }
-    }
-    return this;
-  };
-
   Array.prototype.random = function() {
     return this[Math.floor(Math.random() * this.length)];
   };
@@ -125,7 +92,7 @@ module.exports = (client) => {
   });
 
   process.on('unhandledRejection', err => {
-    console.error;
-    client.logger.error(`Uncaught Promise Error: ${err}`);
+    console.log(err);
+    // client.logger.error(`Uncaught Promise Error: ${err}`);
   });
 };

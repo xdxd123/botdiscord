@@ -11,8 +11,7 @@ class Tag extends Command {
           -del tagName
           -edit existingtagName This is new new edited contents
           -list`,
-      aliases: ['t', 'tags'],
-      botPerms: []
+      aliases: ['t', 'tags']
     });
 
     this.init = client => {

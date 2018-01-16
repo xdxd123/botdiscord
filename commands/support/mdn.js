@@ -10,8 +10,7 @@ class Mdn extends Command {
       name: 'mdn',
       description: 'Resources for developers, by developers.',
       usage: 'mdn <search term>',
-      category: 'Support',
-      botPerms: ['EMBED_LINKS']
+      category: 'Support'
     });
   }
 

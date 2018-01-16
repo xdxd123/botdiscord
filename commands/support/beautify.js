@@ -7,8 +7,7 @@ class Beautify extends Command {
       name: 'beautify',
       description: 'Beautifies code with js-beautify.',
       usage: 'beautify',
-      category: 'Support',
-      botPerms: ['READ_MESSAGE_HISTORY']
+      category: 'Support'
     });
   }
 

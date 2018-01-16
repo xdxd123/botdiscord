@@ -8,9 +8,7 @@ class Reboot extends Command {
       category: 'System',
       usage: 'reboot',
       extended: 'Using this command with PM2 or Forever will cause the bot to exit cleanly, then the process manager will revive it.',
-      hidden: true,
       aliases: ['restart'],
-      botPerms: [],
       permLevel: 'Bot Admin'
     });
   }

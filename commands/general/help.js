@@ -8,16 +8,14 @@ class Help extends Command {
       usage: 'help [command]',
       category: 'Support',
       extended: 'This command will display all available commands for your permission level, with the additonal option of getting per command information when you run \'help <command name>\'.',
-      hidden: true,
-      aliases: ['h', 'halp'],
-      botPerms: []
+      aliases: ['h', 'halp']
     });
   }
 
   async run(message, args, level) {
     const settings = message.settings;
     if (!args[0]) {
-      const myCommands = message.guild ? this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level && cmd.conf.hidden !== true) : this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level && cmd.conf.hidden !== true && cmd.conf.guildOnly !== true);
+      const myCommands = message.guild ? this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level) : this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level && cmd.conf.guildOnly !== true);
       const commandNames = myCommands.keyArray();
       const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
       let currentCategory = '';
@@ -41,7 +39,7 @@ class Help extends Command {
       
       if (!message.guild && command.conf.guildOnly === true) return;
       if (level < this.client.levelCache[command.conf.permLevel]) return;
-      message.channel.send(`= ${command.help.name} = \n${command.help.description}\ncategory:: ${command.help.category}\ncost:: ${parseInt(command.help.cost) * parseInt(command.conf.botPerms.length + 1) * Math.floor(parseInt(settings.costMulti))} points (excluding role discounts)\nusage:: ${command.help.usage}\naliases:: ${command.conf.aliases.join(', ')}\ndetails:: ${command.help.extended}\npermissions:: ${command.conf.botPerms.join(', ')}`, {code:'asciidoc'});    }
+      message.channel.send(`= ${command.help.name} = \n${command.help.description}\ncategory:: ${command.help.category}\nusage:: ${command.help.usage}\naliases:: ${command.conf.aliases.join(', ')}\ndetails:: ${command.help.extended}`, {code:'asciidoc'});    }
   }
 }
 module.exports = Help;

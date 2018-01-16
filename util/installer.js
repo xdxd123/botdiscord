@@ -13,11 +13,7 @@ const defaultSettings = `{
   "announceChannel": "announcements",
   "modRole": "Moderator",
   "adminRole": "Administrator",
-  "systemNotice": "true",
-  "inviteLimit": "10",
-  "nmsEnabled": "false",
-  "nmsRate": "7500",
-  "nmsBanCount": "10"
+  "systemNotice": "true"
 }`;
 
 const settings = new Enmap({provider: new EnmapLevel({name: "settings"})});

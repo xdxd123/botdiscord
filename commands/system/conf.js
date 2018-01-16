@@ -7,8 +7,6 @@ class Set extends Command {
       description: 'Modify the default configuration for all guilds.',
       category: 'System',
       usage: 'conf <view/get/edit> <key> <value>',
-      guildOnly: true,
-      hidden: true,
       aliases: ['defaults'],
       permLevel: 'Bot Admin'
     });

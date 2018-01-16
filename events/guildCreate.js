@@ -5,6 +5,5 @@ module.exports = class {
 
   async execute(guild) {
     if (!guild.available) return;
-    await this.client.user.setGame(`@${this.client.user.username} help`);
   }
 };

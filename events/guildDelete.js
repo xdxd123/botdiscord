@@ -4,7 +4,6 @@ module.exports = class {
   }
 
   async execute(guild) {
-    await this.client.user.setGame(`@${this.client.user.username} help`);
     this.client.settings.delete(guild.id);
   }
 };

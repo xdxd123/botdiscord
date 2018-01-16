@@ -5,7 +5,8 @@ module.exports = class {
   
   async execute() {
     await this.client.wait(1000);
-
+    require('../functions/twitter.js')(this.client);
+    
     try {
       this.client.appInfo = await this.client.fetchApplication();
     } catch (error) {
@@ -21,7 +22,7 @@ module.exports = class {
     }, 60000);
 
     this.client.logger.log(`Logged in as ${this.client.user.tag} and I'm ready to serve ${this.client.users.size} users in ${this.client.guilds.size} servers.`);
-    await this.client.user.setGame(`@${this.client.user.username} help`);
+    await this.client.user.setActivity(`@${this.client.user.username} help`);
   }
   
 };

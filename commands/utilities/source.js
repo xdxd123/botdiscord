@@ -6,7 +6,7 @@ class Source extends Command {
       name: 'source',
       description: 'Gets the raw message content.',
       usage: 'source <messageID>',
-      category: 'Utilities',
+      category: 'Utilities'
     });
   }
 

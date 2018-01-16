@@ -8,8 +8,7 @@ class Npm extends Command {
       name: 'npm',
       description: 'Gets information on an NPM package.',
       usage: 'npm <search term>',
-      category: 'Support',
-      botPerms: ['EMBED_LINKS']
+      category: 'Support'
     });
   }
 

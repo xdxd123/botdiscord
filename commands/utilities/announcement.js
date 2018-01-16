@@ -8,7 +8,6 @@ class Announcement extends Command {
       usage: 'announcement <role name> <announcement>',
       extended: '<role name> must be correctly spelt, otherwise it will throw an error.',
       aliases: ['announce'],
-      botPerms: ['MANAGE_ROLES'],
       permLevel: 'Moderator'
     });
   }

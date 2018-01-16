@@ -14,11 +14,8 @@ class YorkDev extends Client {
     this.config = require('./config.js');
     this.logger = require('./util/Logger.js');
     this.settings = new Enmap({provider: new EnmapLevel({name: 'settings'})});
-    // this.whitelist = new Enmap({provider: new EnmapLevel({name: 'whitelist'})});
     this.commands = new Enmap();
     this.aliases = new Enmap();
-    this.invspam = new Enmap();
-    this.ratelimits = new Enmap();
   }
 
   
@@ -34,11 +31,6 @@ class YorkDev extends Client {
       }
     }
     return permlvl;
-  }
-
-  permCheck(message, perms) {
-    if (message.channel.type !== 'text') return;
-    return message.channel.permissionsFor(message.guild.me).missing(perms);
   }
 
   loadCommand(commandPath, commandName) {

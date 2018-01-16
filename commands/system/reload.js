@@ -8,8 +8,6 @@ class Reload extends Command {
       category: 'System',
       usage: 'reload [command]',
       extended: 'This command is designed to unload, then reload the command from the command & aliases collections for the changes to take effect.',
-      hidden: true,
-      botPerms: [],
       permLevel: 'Bot Admin'
     });
   }

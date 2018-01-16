@@ -11,8 +11,7 @@ class EslintRule extends Command {
       description: 'Gets information on an eslint rule.',
       usage: 'eslint-rule <rule>',
       category: 'Support',
-      aliases: ['rule', 'eslint'],
-      botPerms: ['EMBED_LINKS']
+      aliases: ['rule', 'eslint']
     });
   }
 
