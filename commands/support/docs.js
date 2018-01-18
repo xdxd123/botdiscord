@@ -85,8 +85,7 @@ class Docs extends Command {
   }
 
   clean(text) {
-    return text.replace(/\n/g, ' ')
-      .replace(/<\/?(?:info|warn)>/g, '')
+    return text.replace(/<\/?(?:info|warn)>/g, '')
       .replace(/\{@link (.+?)\}/g, '`$1`');
   }
 
