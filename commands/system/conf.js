@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 
 class Set extends Command {
   constructor(client) {
@@ -7,7 +7,6 @@ class Set extends Command {
       description: 'Modify the default configuration for all guilds.',
       category: 'System',
       usage: 'conf <view/get/edit> <key> <value>',
-      guildOnly: true,
       aliases: ['defaults'],
       permLevel: 'Bot Admin'
     });

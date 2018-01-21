@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 
 class Example extends Command {
   constructor(client) {
@@ -8,8 +8,7 @@ class Example extends Command {
       usage: 'example <action> [examplename] <contents>.',
       category: 'Support',
       extended: '-add newExampleName This is your new example contents\n          -del exampleName\n          -edit existingExampleName This is new example edited contents\n          -list',
-      aliases: ['ex', 'examples'],
-      botPerms: []
+      aliases: ['ex', 'examples']
     });
     this.init = client => {
       this.db = new client.db(client, 'examples');
@@ -46,7 +45,7 @@ class Example extends Command {
       const response = await this.db[message.flags[0]](name, data);
       message.channel.send(response);
     } catch (error) {
-      throw error;
+      this.channel.logger.error(error);
     }
   }
 }

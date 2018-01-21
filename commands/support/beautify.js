@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 const { js_beautify: beautify } = require('js-beautify');
 
 class Beautify extends Command {
@@ -7,8 +7,7 @@ class Beautify extends Command {
       name: 'beautify',
       description: 'Beautifies code with js-beautify.',
       usage: 'beautify',
-      category: 'Support',
-      botPerms: ['READ_MESSAGE_HISTORY']
+      category: 'Support'
     });
   }
 
@@ -26,7 +25,7 @@ class Beautify extends Command {
     }
 
     if (!code) {
-      throw 'No JavaScript code blocks found.';
+      message.reply('No JavaScript code blocks found.');
     }
 
     let beautifiedCode = beautify(code, { indent_size: 2, brace_style: 'none' });

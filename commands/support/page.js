@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 const baseUrl = 'https://anidiots.guide';
 
 /*
@@ -17,8 +17,7 @@ class Page extends Command {
       usage: 'page [-list] [name]',
       category:'Support',
       extended: '-add newPageName /path/to/page.html Snippet describing the page\n          -del pageName\n          -edit pageName This is new new edited snippet\n          -rename pageName newName\n          -export // exports and returns URL\n          -import http://url-to-import/\n          -list',
-      aliases: ['guide', 'guides', 'pages', 'p'],
-      botPerms: []
+      aliases: ['guide', 'guides', 'pages', 'p']
     });
 
     this.init = client => {
@@ -61,7 +60,7 @@ class Page extends Command {
       const response = await this.db[message.flags[0]](name, data);
       message.channel.send(response);
     } catch (error) {
-      throw error;
+      this.client.logger.error(error);
     }
   }
 }

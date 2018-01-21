@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 const exec = require('child_process').exec;
 
 class Exec extends Command {
@@ -9,8 +9,6 @@ class Exec extends Command {
       usage: 'exec <expression>',
       category: 'System',
       extended: 'This will spawn a child process and execute the given command.',
-      hidden: true,
-      botPerms: [],
       permLevel: 'Bot Owner'
     });
   }

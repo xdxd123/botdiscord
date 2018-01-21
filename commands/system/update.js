@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 const { promisify } = require('util');
 const exec = promisify(require('child_process').exec);
 const path = require('path');
@@ -11,9 +11,7 @@ class Update extends Command {
       usage: 'update',
       category: 'System',
       extended: 'This command is designed to update the bot from it\'s own repository, then reboots the bot for the changes to take effect.',
-      hidden: true,
       aliases: ['git', 'pull'],
-      botPerms: [],
       permLevel: 'Bot Owner'
     });
   }

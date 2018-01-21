@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 const { RichEmbed } = require('discord.js');
 const snek = require('snekfetch');
 
@@ -8,12 +8,12 @@ class Npm extends Command {
       name: 'npm',
       description: 'Gets information on an NPM package.',
       usage: 'npm <search term>',
-      category: 'Support',
-      botPerms: ['EMBED_LINKS']
+      category: 'Support'
     });
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
+    if (args.length === 0) return message.reply('You must supply a search term.');
     const query = args.join(' ');
     try {
       const { body } = await snek.get(`https://registry.npmjs.com/${query}`);
@@ -50,9 +50,9 @@ class Npm extends Command {
 **Download:** [${body.name}](https://www.npmjs.com/package/${query})`);
         
       message.channel.send({embed});
-    } catch (err) {
-      if (err.status === 404) throw 'Could not find any results.';
-      console.log(err);
+    } catch (error) {
+      if (error.status === 404) message.reply('Could not find any results.');
+      this.client.logger.error(error);
     }
   }
 }

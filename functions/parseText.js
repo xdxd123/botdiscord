@@ -3,7 +3,7 @@
 	Yes, this is a modified version of Auto by Hackzilla
 
 */
-const issue = require('../assets/json/issueList.json');
+const issue = require(`${process.cwd()}/assets/json/issueList.json`);
 function parse(input) {
   if (input.includes('Block-scoped declarations (let, const, function, class) not yet supported outside strict mode')) {
     return {
@@ -61,10 +61,10 @@ function parse(input) {
 
   // if (input.includes('TypeError: Discord.RichEmbed is not a constructor')) {
   //   return {
-  //     message: issue.responses.richembed.message,
-  //     info: issue.responses.richembed.info,
-  //     problem: issue.responses.richembed.problem,
-  //     solution: issue.responses.richembed.solution,
+  //     message: issue.responses.RichEmbed.message,
+  //     info: issue.responses.RichEmbed.info,
+  //     problem: issue.responses.RichEmbed.problem,
+  //     solution: issue.responses.RichEmbed.solution,
   //   };
   // } else
   // : Unhandled promise rejection (rejection id: 1): Error: Bad Request
@@ -111,6 +111,15 @@ function parse(input) {
       info: issue.responses.defaultchannel.info,
       problem: issue.responses.defaultchannel.problem,
       solution: issue.responses.defaultchannel.solution,
+    };
+  } else
+
+  if (input.includes('unmet peer dependencies')) { // eslint-disable-line quotes
+    return {
+      message: issue.responses.unmetdeps.message,
+      info: issue.responses.unmetdeps.info,
+      problem: issue.responses.unmetdeps.problem,
+      solution: issue.responses.unmetdeps.solution,
     };
   }
 

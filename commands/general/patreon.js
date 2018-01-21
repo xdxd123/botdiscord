@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 const { RichEmbed } = require('discord.js');
 
 class Patreon extends Command {
@@ -9,8 +9,7 @@ class Patreon extends Command {
       usage: 'patreon',
       category: 'General',
       extended: 'Pulls up a list of current Patreon tiers to support York.',
-      aliases: ['donate', 'pledge', 'patron'],
-      botPerms: ['EMBED_LINKS']
+      aliases: ['donate', 'pledge', 'patron']
     });
   }
 

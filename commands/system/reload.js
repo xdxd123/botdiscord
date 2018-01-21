@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 
 class Reload extends Command {
   constructor(client) {
@@ -8,8 +8,6 @@ class Reload extends Command {
       category: 'System',
       usage: 'reload [command]',
       extended: 'This command is designed to unload, then reload the command from the command & aliases collections for the changes to take effect.',
-      hidden: true,
-      botPerms: [],
       permLevel: 'Bot Admin'
     });
   }

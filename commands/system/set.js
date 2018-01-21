@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require(`${process.cwd()}/base/Command.js`);
 
 class Set extends Command {
   constructor(client) {
@@ -8,10 +8,7 @@ class Set extends Command {
       category: 'System',
       usage: 'set <view/get/edit> <key> <value>',
       extended: 'This command is designed to change per-server-configurations for the guild the command was issued on.',
-      hidden: true,
-      guildOnly: true,
       aliases: ['setting', 'settings'],
-      botPerms: [],
       permLevel: 'Administrator'
     });
   }
@@ -62,7 +59,6 @@ class Set extends Command {
       });
       await message.channel.send(`= Current Guild Settings =
 ${array.join('\n')}`, {code: 'asciidoc'});
-      message.channel.send(`See the Dashboard on <${this.client.config.dashboard.callbackURL.split('/').slice(0, -1).join('/')}>`);
     }
   }
 }
