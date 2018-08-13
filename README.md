@@ -1,3 +1,5 @@
+**THIS REPOSITORY IS ARCHIVED FOR HISTORICAL PURPOSES, THE CODE IS NOT RUNNABLE BECAUSE OF SOME DEPENDENCIES THAT CAN NOT RUN IN THE OLD VERSION. IF YOU WANT TO MAKE YOUR OWN BOT LIKE THIS BOT, YOU CAN CHECK [Guide Bot](https://github.com/AnIdiotsGuide/guidebot), [Guide Bot Class](https://github.com/AnIdiotsGuide/guidebot-class) OR [Misaki](https://github.com/NotAWeebDev/Misaki)
+
 # York Dev
 
 This bot serves as one of the backbones of the Idiot's Guide Community, using the community's [Guide Bot](https://github.com/An-Idiots-Guide/guidebot) as a base framework, York Dev expands on its functionalities with common error detection with solution, fun commands, as well as a tag and example command!
