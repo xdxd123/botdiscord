@@ -1,4 +1,4 @@
-**THIS REPOSITORY IS ARCHIVED FOR HISTORICAL PURPOSES, THE CODE IS NOT RUNNABLE BECAUSE OF SOME DEPENDENCIES THAT CAN NOT RUN IN THE OLD VERSION. IF YOU WANT TO MAKE YOUR OWN BOT LIKE THIS BOT, YOU CAN CHECK [Guide Bot](https://github.com/AnIdiotsGuide/guidebot), [Guide Bot Class](https://github.com/AnIdiotsGuide/guidebot-class) OR [Misaki](https://github.com/NotAWeebDev/Misaki)
+**THIS REPOSITORY IS ARCHIVED FOR HISTORICAL PURPOSES, THE CODE IS NOT RUNNABLE BECAUSE OF SOME DEPENDENCIES THAT CAN NOT RUN IN THE OLD VERSION. IF YOU WANT TO MAKE YOUR OWN BOT LIKE THIS BOT, YOU CAN CHECK [Guide Bot](https://github.com/AnIdiotsGuide/guidebot), [Guide Bot Class](https://github.com/AnIdiotsGuide/guidebot-class) OR [Misaki](https://github.com/NotAWeebDev/Misaki)**
 
 # York Dev
 
